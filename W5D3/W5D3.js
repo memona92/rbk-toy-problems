@@ -37,3 +37,38 @@ orderAVegetarianDish(staffA); //true
 */
 
 // your answer is here 
+function each(array,f){
+  for(var i=0; i<array.length; i++){
+    f(array[i],i)
+  }
+}
+
+function reduce(array,f,start){
+  var acc=start;
+  each(array,function(element){
+    acc=f(acc,element);
+  });
+  return acc;
+}
+
+function orderAVegetarianDish(array){
+  return reduce(array,function(acc,element){
+     element.mealPreferences === "vegetarian"; 
+     acc=true;
+     return acc;
+  },true);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
